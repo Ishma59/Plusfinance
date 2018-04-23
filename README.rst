@@ -1,4 +1,4 @@
-micro-finance
+Plusfinance
 =============
 Full featured completely customizable software for Plusfinance Institutes
 This is an opensource initiative for SACCO.
