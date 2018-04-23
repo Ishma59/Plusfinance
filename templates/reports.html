@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+<li>Reports Page</li>
+{% endblock %}
+{% block stage %}
+<div class="banner">
+  <div class="banner_content">
+    <h3>Reports</h3>
+    <div class="select_banner row">
+      <div class="col-4">
+        <button type="button" class="pull-left branch"><a href="{% url 'micro_admin:generalledger' %}">General Ledger</a></button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="pull-left branch"><a href="{% url 'micro_admin:viewdaybook' %}">Day Book</a></button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="pull-left branch"><a href="{% url 'micro_admin:profitandloss' %}">Profit and Loss</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock stage %}

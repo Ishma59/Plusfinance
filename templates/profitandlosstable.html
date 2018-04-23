@@ -1,0 +1,323 @@
+<div class="hg-table panel-body pb-table row">
+  <div class="table-responsive col-md-6">
+   
+    <table class="table table-bordered"  border="1">
+      <thead>
+        <tr>
+          <th colspan="6">Receipts</th>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <th>Account No.</th>
+          <th>Receipt No.</th>
+          <th>Details</th>
+          <th>Cash</th>
+          <th>Bank</th>
+        </tr>
+      </thead>
+      <tbody class="body-row-tb">
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Loan Recoveries</b></td>
+        </tr>
+        {% for loanprinciple_amount in loanprinciple_amount_sum_list %}
+        {% if loanprinciple_amount.loanprinciple_amount_sum %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ loanprinciple_amount.account_number }}</td>
+          {% if loanprinciple_amount.has_list %}
+            <td>
+              {% for receipt in loanprinciple_amount.receipt_number %}
+                {{receipt}}
+                {%if not forloop.last%},{%endif%}
+              {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ loanprinciple_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ loanprinciple_amount.group_name }}</td>
+          <td>{{ loanprinciple_amount.loanprinciple_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Loan Recoveries</b></td>
+          <td >{{ dict.total_loanprinciple_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b> Interest on Loans</b></td>
+        </tr>
+        {% for loaninterest_amount in loaninterest_amount_sum_list %}
+        {% if loaninterest_amount.loaninterest_amount_sum %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ loaninterest_amount.account_number }}</td>
+          {% if loaninterest_amount.has_list %}
+            <td>
+              {% for receipt in loaninterest_amount.receipt_number %}
+                {{ receipt }}
+                {%if not forloop.last%},{%endif%}
+              {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ loaninterest_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ loaninterest_amount.group_name }}</td>
+          <td>{{ loaninterest_amount.loaninterest_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Interest on Loans</b></td>
+          <td>{{ dict.total_loaninterest_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Entrance Fees</b></td>
+        </tr>
+        {% for entrancefee_amount in entrancefee_amount_sum_list %}
+        {% if entrancefee_amount.entrancefee_amount_sum %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ entrancefee_amount.account_number }}</td>
+          {% if entrancefee_amount.has_list %}
+            <td>
+              {% for receipt in entrancefee_amount.receipt_number %}
+                {{ receipt }}
+                {%if not forloop.last%},{%endif%}
+              {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ entrancefee_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ entrancefee_amount.group_name }}</td>
+          <td>{{ entrancefee_amount.entrancefee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Entrance Fees</b></td>
+          <td >{{ dict.total_entrancefee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Membership Fees</b></td>
+        </tr>
+        {% for membershipfee_amount in membershipfee_amount_sum_list %}
+        {% if membershipfee_amount.membershipfee_amount_sum  %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ membershipfee_amount.account_number }}</td>
+          {% if membershipfee_amount.has_list %}
+            <td>
+            {% for receipt in membershipfee_amount.receipt_number %}
+              {{ receipt }}
+              {%if not forloop.last%},{%endif%}
+            {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ membershipfee_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ membershipfee_amount.group_name }}</td>
+          <td>{{ membershipfee_amount.membershipfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Membership Fees</b></td>
+          <td>{{ dict.total_membershipfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Book Fees</b></td>
+        </tr>
+        {% for bookfee_amount in bookfee_amount_sum_list %}
+        {% if bookfee_amount.bookfee_amount_sum  %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ bookfee_amount.account_number }}</td>
+          {% if bookfee_amount.has_list %}
+            <td>
+            {% for receipt in bookfee_amount.receipt_number %}
+              {{ receipt }}
+              {%if not forloop.last%},{%endif%}
+            {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ bookfee_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ bookfee_amount.group_name }}</td>
+          <td>{{ bookfee_amount.bookfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Book Fees</b></td>
+          <td>{{ dict.total_bookfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Loan Processing Fees</b></td>
+        </tr>
+        {% for loanprocessingfee_amount in loanprocessingfee_amount_sum_list %}
+        {% if loanprocessingfee_amount.loanprocessingfee_amount_sum %}
+        <tr>
+          <td>{{ selected_date }}</td>
+          <td>{{ loanprocessingfee_amount.account_number }}</td>
+          {% if loanprocessingfee_amount.has_list %}
+            <td>
+            {% for receipt in loanprocessingfee_amount.receipt_number %}
+              {{ receipt }}
+              {%if not forloop.last%},{%endif%}
+            {% endfor %}
+            </td>
+          {% else %}
+          <td>{{ loanprocessingfee_amount.receipt_number }}</td>
+          {% endif %}
+          <td>{{ loanprocessingfee_amount.group_name }}</td>
+          <td>{{ loanprocessingfee_amount.loanprocessingfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Loan Processing Fees</b></td>
+          <td>{{ dict.total_loanprocessingfee_amount_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align:center"><b>Total </b></td>
+          <td><b>{{ total_income|floatformat:2 }}</b></td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-responsive col-md-6">
+    <table class="table table-bordered" border="1">
+      <thead>
+        <tr>
+          <th colspan="6">Payments</th>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <th>Account Number</th>
+          <th>Voucher Number</th>
+          <th>Details</th>
+          <th>Cash</th>
+          <th>Bank</th>
+        </tr>
+      </thead>
+      <tbody class="body-row-tb">
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Travelling Allowance</b></td>
+        </tr>
+        {% for travelling_allowance in travellingallowance_list %}
+        <tr>
+          <td>{{ travelling_allowance.date }}</td>
+          <td>Staff Role :
+            {% if travelling_allowance.staff.is_admin %}
+            Admin
+            {% else %}
+            {{ travelling_allowance.staff.user_roles }}
+          </td>
+          {% endif %}
+          <td>{{ travelling_allowance.voucher_number }}</td>
+          <td>{{ travelling_allowance.staff.username }}</td>
+          <td>{{ travelling_allowance.total_amount|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Travelling Allowances</b></td>
+          <td>{{ dict_payments.travellingallowance_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Printing Charges</b></td>
+        </tr>
+        {% for printingcharges in printingcharges_list %}
+        <tr>
+          <td>{{ printingcharges.date }}</td>
+          <td>{{ printingcharges.client.account_number }}</td>
+          <td>{{ printingcharges.voucher_number }}</td>
+          <td>{{ printingcharges.client.first_name }}</td>
+          <td>{{ printingcharges.total_amount|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Printing Charges</b></td>
+          <td>{{ dict_payments.printingcharges_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Stationary Charges</b></td>
+        </tr>
+        {% for stationarycharges in stationarycharges_list %}
+        <tr>
+          <td>{{ stationarycharges.date }}</td>
+          <td>{{ stationarycharges.client.account_number }}</td>
+          <td>{{ stationarycharges.voucher_number }}</td>
+          <td>{{ stationarycharges.client.first_name }}</td>
+          <td>{{ stationarycharges.total_amount|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Stationary Charges</b></td>
+          <td>{{ dict_payments.stationarycharges_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan="6" class="color-inner-hedng box-center"><b>Other Charges</b></td>
+        </tr>
+        {% for othercharges in othercharges_list %}
+        <tr>
+          <td>{{ othercharges.date }}</td>
+          <td>{{ othercharges.client.account_number }}</td>
+          <td>{{ othercharges.voucher_number }}</td>
+          <td>{{ othercharges.client.first_name }}</td>
+          <td>{{ othercharges.total_amount|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Other Charges</b></td>
+          <td>{{ dict_payments.othercharges_sum|floatformat:2 }}</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align:center"><b>Total </b></td>
+          <td><b>{{ total_expenses|floatformat:2 }}</b></td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+     <table class="table table-bordered"  border="1">
+      <thead>
+        <tr>
+          <th colspan="6">Profit and Loss</th>
+        </tr>
+        <tr>
+          <th>Date</th>
+          
+          <th>Details</th>
+          <th>Cash</th>
+          
+        </tr>
+      </thead>
+      <tbody class="body-row-tb">
+        <tr style="text-align:center">
+           <td colspan="4" style="text-align:right" class="color-inner-hedng box-center"><b>Total Outcome</b></td>
+          <td><b>{{profitlosssummary|floatformat:2}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
