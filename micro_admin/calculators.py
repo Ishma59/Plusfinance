@@ -1,5 +1,5 @@
 from decimal import Decimal as D
-from intervals import TimeInterval
+from micro_admin.intervals import TimeInterval
 
 class ProfitsLossCalculator(object):
     """
