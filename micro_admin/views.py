@@ -27,7 +27,7 @@ from django.views import generic
 # import xlwt
 from xhtml2pdf import pisa
 from django.template.loader import get_template
-import cStringIO as StringIO
+#import import cStringIO as StringIO
 from weasyprint import HTML
 import pdfkit
 #import reportlab
