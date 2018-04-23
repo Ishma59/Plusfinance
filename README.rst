@@ -1,7 +1,7 @@
 micro-finance
 =============
-Full featured completely customizable software for Microfinanace Institutes
-This is MicroPyramid opensource initiative for microfinanace management.
+Full featured completely customizable software for Plusfinance Institutes
+This is an opensource initiative for SACCO.
 This is full featured software to manage microfinanace Institute(s).
 
 .. image:: https://travis-ci.org/MicroPyramid/micro-finance.svg?branch=master
@@ -32,9 +32,7 @@ You can try it by hosting on your own or deploy to Heroku with a button click.
 Deploy To Heroku:
 
 .. image:: https://www.herokucdn.com/deploy/button.svg
-   :target: https://heroku.com/deploy?template=https://github.com/MicroPyramid/micro-finance
-
-You can view the sample here `https://test-microfinance-app.herokuapp.com/`_
+   :target: https://heroku.com/deploy?template=https://github.com/Ishma59/Plusfinance
 
 Credentials to MicroFinance Dashboard:
 
